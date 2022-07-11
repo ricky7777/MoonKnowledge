@@ -5,45 +5,169 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:background="@drawable/dbs_321">
 
+    <!-- 這是左外框  -->
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-
-    <TextView
-        android:id="@+id/textView0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello CathayBank"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="622dp"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.27" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="This is 12th CIP"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.393" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="93dp"
-        android:layout_height="133dp"
-        android:layout_marginStart="159dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="159dp"
-        android:src="@drawable/img"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/textView1" />
+        app:layout_constraintBottom_toBottomOf="parent">
 
+        <!-- 這是勾勾圖 -->
+        <ImageView
+            android:id="@+id/iv_nike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_status_l"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="88dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- 已收到您的資料，請稍候片刻 -->
+        <TextView
+            android:id="@+id/tv_received_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/noto_sans_tc_medium"
+            android:text="已收到您的資料，請稍候片刻"
+            android:textColor="@color/oxford_blue"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_nike" />
+
+        <!-- 時間 -->
+        <TextView
+            android:id="@+id/tv_received_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="2022/03/12   09:40:35"
+            android:fontFamily="@font/noto_sans_tc_regular"
+            android:textColor="@color/aluminium"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_received_hint" />
+
+
+        <!-- 等待人數 -->
+        <TextView
+            android:id="@+id/tv_waiting_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:text="目前等待人數"
+            android:fontFamily="@font/noto_sans_tc_medium"
+            android:textColor="@color/atomic"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_received_time" />
+
+        <!-- 等待人數翻牌group，-8要想想，顏色要漸層還沒改！！！-->
+        <LinearLayout
+            android:id="@+id/ll_waiting_num_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_waiting_title">
+
+            <!-- 等待數字左 -->
+            <TextView
+                android:id="@+id/tv_waiting_num_left"
+                android:layout_width="98dp"
+                android:layout_height="114dp"
+                android:text="0"
+                android:fontFamily="@font/noto_sans_tc_medium"
+                android:textSize="100sp"
+                android:textColor="@color/apple"
+                android:background="@drawable/radius_12dp_cut"
+                android:gravity="center"
+                android:layout_marginTop="0dp"/>
+
+            <!-- 等待數字右 -->
+            <TextView
+                android:id="@+id/tv_waiting_num_right"
+                android:layout_width="98dp"
+                android:layout_height="114dp"
+                android:layout_marginStart="16dp"
+                android:text="3"
+                android:fontFamily="@font/noto_sans_tc_medium"
+                android:textSize="100sp"
+                android:textColor="@color/apple"
+                android:background="@drawable/radius_12dp_cut"
+                android:gravity="center"
+                android:layout_marginTop="0dp"/>
+
+        </LinearLayout>
+
+        <!-- 預先備好身分證將加快驗證流程 -->
+        <TextView
+            android:id="@+id/tv_prepare_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="預先備好身分證將加快驗證流程"
+            android:fontFamily="@font/noto_sans_tc_regular"
+            android:textSize="16sp"
+            android:textColor="@color/oxford_blue"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_waiting_num_group" />
+
+        <!-- 取消交易 -->
+        <TextView
+            android:id="@+id/tv_cancel_trading"
+            android:layout_width="212dp"
+            android:layout_height="56dp"
+            android:text="取消交易"
+            android:fontFamily="@font/noto_sans_tc_medium"
+            android:textSize="22sp"
+            android:textColor="@color/apple"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/radius_8dp_cut"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tv_prepare_id" />
+
+        <!-- 左下角左 -->
+        <TextView
+            android:id="@+id/tv_countdown_prefix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="為確保您的資料安全，閒置"
+            android:fontFamily="@font/noto_sans_tc_regular"
+            android:textSize="16sp"
+            android:textColor="@color/aluminium"
+            android:layout_marginStart="40dp"
+            android:layout_marginBottom="22dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- 左下角右 -->
+        <TextView
+            android:id="@+id/tv_countdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5 分 58 秒後自動登出"
+            android:fontFamily="@font/noto_sans_tc_regular"
+            android:textSize="16sp"
+            android:textColor="@color/pumkin"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="22dp"
+            app:layout_constraintStart_toEndOf="@id/tv_countdown_prefix"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
