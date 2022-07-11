@@ -30,6 +30,7 @@
 
         <!-- 已收到您的資料，請稍候片刻 -->
         <TextView
+            android:includeFontPadding="false"
             android:id="@+id/tv_received_hint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,6 +45,7 @@
 
         <!-- 時間 -->
         <TextView
+            android:includeFontPadding="false"
             android:id="@+id/tv_received_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,6 +61,7 @@
 
         <!-- 等待人數 -->
         <TextView
+            android:includeFontPadding="false"
             android:id="@+id/tv_waiting_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,45 +77,64 @@
         <!-- 等待人數翻牌group，-8要想想，顏色要漸層還沒改！！！-->
         <LinearLayout
             android:id="@+id/ll_waiting_num_group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_width="212dp"
+            android:layout_height="114dp"
             android:layout_marginTop="16dp"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_waiting_title">
 
             <!-- 等待數字左 -->
-            <TextView
-                android:id="@+id/tv_waiting_num_left"
-                android:layout_width="98dp"
-                android:layout_height="114dp"
-                android:text="0"
-                android:fontFamily="@font/noto_sans_tc_medium"
-                android:textSize="100sp"
-                android:textColor="@color/apple"
-                android:background="@drawable/radius_12dp_cut"
-                android:gravity="center"
-                android:layout_marginTop="0dp"/>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/radius_12dp_cut">
+
+                <com.cathaybk.dbs.beanknowledge.GradientTextView
+                    android:id="@+id/tv_waiting_num_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="-39dp"
+                    android:fontFamily="@font/noto_sans_tc_medium"
+                    android:includeFontPadding="false"
+                    android:textSize="100sp"
+                    app:endTextColor="@color/dark_mint"
+                    app:startTextColor="@color/faded_green"
+                    tools:text="0" />
+            </RelativeLayout>
 
             <!-- 等待數字右 -->
-            <TextView
-                android:id="@+id/tv_waiting_num_right"
-                android:layout_width="98dp"
-                android:layout_height="114dp"
-                android:layout_marginStart="16dp"
-                android:text="3"
-                android:fontFamily="@font/noto_sans_tc_medium"
-                android:textSize="100sp"
-                android:textColor="@color/apple"
-                android:background="@drawable/radius_12dp_cut"
-                android:gravity="center"
-                android:layout_marginTop="0dp"/>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/radius_12dp_cut">
+
+                <com.cathaybk.dbs.beanknowledge.GradientTextView
+                    android:id="@+id/tv_waiting_num_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="-39dp"
+                    android:fontFamily="@font/noto_sans_tc_medium"
+                    android:includeFontPadding="false"
+                    android:textSize="100sp"
+                    app:endTextColor="@color/dark_mint"
+                    app:startTextColor="@color/faded_green"
+                    tools:text="3" />
+            </RelativeLayout>
 
         </LinearLayout>
 
+
         <!-- 預先備好身分證將加快驗證流程 -->
         <TextView
+            android:includeFontPadding="false"
             android:id="@+id/tv_prepare_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -127,6 +149,7 @@
 
         <!-- 取消交易 -->
         <TextView
+            android:includeFontPadding="false"
             android:id="@+id/tv_cancel_trading"
             android:layout_width="212dp"
             android:layout_height="56dp"
@@ -143,6 +166,7 @@
 
         <!-- 左下角左 -->
         <TextView
+            android:includeFontPadding="false"
             android:id="@+id/tv_countdown_prefix"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -157,6 +181,7 @@
 
         <!-- 左下角右 -->
         <TextView
+            android:includeFontPadding="false"
             android:id="@+id/tv_countdown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
