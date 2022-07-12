@@ -19,10 +19,9 @@ class MainActivity : Activity() {
         binding = MainActivityBinding.inflate(layoutInflater)
             .apply {
                 setContentView(root)
-                upperLeftContent.tvWaitingNumLeft.text = (leftNumber).toString()
-                upperLeftContent.tvWaitingNumRight.text = (rightNumber).toString()
                 upperLeftContent.tvCancelTrading.setOnClickListener { cancelTrading() }
             }
+        updateVariable()
     }
 
 
@@ -44,8 +43,11 @@ class MainActivity : Activity() {
     }
 
     private fun updateVariable() {
-        binding.upperLeftContent.tvWaitingNumLeft.text = (leftNumber).toString()
-        binding.upperLeftContent.tvWaitingNumRight.text = (rightNumber).toString()
+        binding.upperLeftContent.apply {
+            tvWaitingNumLeft.text = (leftNumber).toString()
+            tvWaitingNumRight.text = (rightNumber).toString()
+
+        }
     }
 
     private fun calculCarryNum() {

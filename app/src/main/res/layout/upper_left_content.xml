@@ -55,7 +55,7 @@
         android:textColor="@color/atomic"
         android:textSize="20sp" />
 
-    <!-- 等待人數翻牌group，-8要想想，顏色要漸層還沒改！！！-->
+    <!-- 等待人數翻牌group -->
     <LinearLayout
         android:id="@+id/ll_waiting_num_group"
         android:layout_width="match_parent"
