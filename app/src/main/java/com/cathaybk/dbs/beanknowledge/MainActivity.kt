@@ -19,28 +19,40 @@ class MainActivity : Activity() {
         binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.upperLeftContent.tvWaitingNumLeft.text = (leftNumber).toString()
-        binding.upperLeftContent.tvWaitingNumRight.text = (rightNumber).toString()
+        updateVariable()
 
-        binding.upperLeftContent.tvCancelTrading.setOnClickListener{ cancelTrading() }
+        binding.upperLeftContent.tvCancelTrading.setOnClickListener { cancelTrading() }
     }
 
 
     private fun cancelTrading() {
 
-        if(rightNumber == 9) {
-            if(leftNumber == 9) return
-
-            rightNumber = 0
-            leftNumber += 1
-            binding.upperLeftContent.tvWaitingNumLeft.text = (leftNumber).toString()
-            binding.upperLeftContent.tvWaitingNumRight.text = (rightNumber).toString()
-        }
-        else{
-            rightNumber += 1
-            binding.upperLeftContent.tvWaitingNumRight.text = (rightNumber).toString()
+        if (rightNumber == 9 && leftNumber == 9) {
+            return
         }
 
+        if (rightNumber == 9) {
+            calculCarryNum()
+            updateVariable()
+        } else {
+            calculNum()
+            updateVariable()
+        }
 
+
+    }
+
+    private fun updateVariable() {
+        binding.upperLeftContent.tvWaitingNumLeft.text = (leftNumber).toString()
+        binding.upperLeftContent.tvWaitingNumRight.text = (rightNumber).toString()
+    }
+
+    private fun calculCarryNum() {
+        rightNumber = 0
+        leftNumber += 1
+    }
+
+    private fun calculNum() {
+        rightNumber += 1
     }
 }
