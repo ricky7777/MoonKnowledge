@@ -21,34 +21,15 @@
 
     </include>
 
-    <!-- 左下角左 -->
-    <TextView
-        android:id="@+id/tv_countdown_prefix"
+    <include
+        android:id="@+id/bottom_left_content"
+        layout="@layout/bottom_left_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="22dp"
-        android:fontFamily="@font/noto_sans_tc_regular"
-        android:includeFontPadding="false"
-        android:text="為確保您的資料安全，閒置"
-        android:textColor="@color/aluminium"
-        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginBottom="22dp">
 
-    <!-- 左下角右 -->
-    <TextView
-        android:id="@+id/tv_countdown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="22dp"
-        android:fontFamily="@font/noto_sans_tc_regular"
-        android:includeFontPadding="false"
-        android:text="5 分 58 秒後自動登出"
-        android:textColor="@color/pumkin"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_countdown_prefix" />
+    </include>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
