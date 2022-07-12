@@ -17,11 +17,12 @@ class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = MainActivityBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        updateVariable()
-
-        binding.upperLeftContent.tvCancelTrading.setOnClickListener { cancelTrading() }
+            .apply {
+                setContentView(root)
+                upperLeftContent.tvWaitingNumLeft.text = (leftNumber).toString()
+                upperLeftContent.tvWaitingNumRight.text = (rightNumber).toString()
+                upperLeftContent.tvCancelTrading.setOnClickListener { cancelTrading() }
+            }
     }
 
 
