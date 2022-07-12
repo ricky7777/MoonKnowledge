@@ -10,8 +10,8 @@ import com.cathaybk.dbs.beanknowledge.databinding.UpperLeftContentBinding
  */
 class MainActivity : Activity() {
     private lateinit var binding: MainActivityBinding
-    var rightNumber = 0
-    var leftNumber = 0
+    private var rightNumber = 0
+    private var leftNumber = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,12 +33,11 @@ class MainActivity : Activity() {
 
         if (rightNumber == 9) {
             calculCarryNum()
-            updateVariable()
         } else {
             calculNum()
-            updateVariable()
         }
 
+        updateVariable()
 
     }
 
