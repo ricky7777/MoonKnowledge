@@ -39,6 +39,6 @@ class GradientTextView @JvmOverloads constructor(context: Context, attrs: Attrib
     }
 
     private fun getLinearGradient() = LinearGradient(
-        0f, 0f, width.toFloat(), 0f, colorStart, colorEnd, Shader.TileMode.DECAL
+        0f, 0f, width.toFloat(), 0f, colorStart, colorEnd, Shader.TileMode.CLAMP
     )
 }

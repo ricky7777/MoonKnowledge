@@ -3,12 +3,13 @@ package com.cathaybk.dbs.beanknowledge
 import android.app.Activity
 import android.os.Bundle
 import com.cathaybk.dbs.beanknowledge.databinding.MainActivityBinding
+import com.cathaybk.dbs.beanknowledge.databinding.UpperLeftContentBinding
 
 /**
  * Created by Ricky on 2022/7/5.
  */
 class MainActivity : Activity() {
-    lateinit var binding: MainActivityBinding
+    private lateinit var binding: MainActivityBinding
     var rightNumber = 0
     var leftNumber = 0
 
@@ -18,10 +19,10 @@ class MainActivity : Activity() {
         binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tvWaitingNumLeft.text = (leftNumber).toString()
-        binding.tvWaitingNumRight.text = (rightNumber).toString()
+        binding.upperLeftContent.tvWaitingNumLeft.text = (leftNumber).toString()
+        binding.upperLeftContent.tvWaitingNumRight.text = (rightNumber).toString()
 
-        binding.tvCancelTrading.setOnClickListener{ cancelTrading() }
+        binding.upperLeftContent.tvCancelTrading.setOnClickListener{ cancelTrading() }
     }
 
 
@@ -32,12 +33,12 @@ class MainActivity : Activity() {
 
             rightNumber = 0
             leftNumber += 1
-            binding.tvWaitingNumLeft.text = (leftNumber).toString()
-            binding.tvWaitingNumRight.text = (rightNumber).toString()
+            binding.upperLeftContent.tvWaitingNumLeft.text = (leftNumber).toString()
+            binding.upperLeftContent.tvWaitingNumRight.text = (rightNumber).toString()
         }
         else{
             rightNumber += 1
-            binding.tvWaitingNumRight.text = (rightNumber).toString()
+            binding.upperLeftContent.tvWaitingNumRight.text = (rightNumber).toString()
         }
 
 
