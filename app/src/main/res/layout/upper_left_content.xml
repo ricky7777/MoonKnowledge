@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="286dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="168dp"
+    android:layout_marginTop="56dp"
+    android:orientation="vertical">
+
+    <!-- 這是勾勾圖 -->
+    <ImageView
+        android:id="@+id/iv_nike"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_status_l" />
+
+    <!-- 已收到您的資料，請稍候片刻 -->
+    <TextView
+        android:id="@+id/tv_received_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/noto_sans_tc_medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="已收到您的資料，請稍候片刻"
+        android:textColor="@color/oxford_blue"
+        android:textSize="22sp" />
+
+    <!-- 時間 -->
+    <TextView
+        android:id="@+id/tv_received_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/noto_sans_tc_regular"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="2022/03/12   09:40:35"
+        android:textColor="@color/aluminium"
+        android:textSize="16sp" />
+
+
+    <!-- 等待人數 -->
+    <TextView
+        android:id="@+id/tv_waiting_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/noto_sans_tc_medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="目前等待人數"
+        android:textColor="@color/atomic"
+        android:textSize="20sp" />
+
+    <!-- 等待人數翻牌group -->
+    <LinearLayout
+        android:id="@+id/ll_waiting_num_group"
+        android:layout_width="match_parent"
+        android:layout_height="114dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <!-- 等待數字左 -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="37dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/radius_12dp_cut">
+
+            <com.cathaybk.dbs.beanknowledge.GradientTextView
+                android:id="@+id/tv_waiting_num_left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="-39dp"
+                android:fontFamily="@font/noto_sans_tc_medium"
+                android:includeFontPadding="false"
+                android:text="0"
+                android:textSize="100sp"
+                app:endTextColor="@color/dark_mint"
+                app:startTextColor="@color/faded_green" />
+        </RelativeLayout>
+
+        <!-- 等待數字右 -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="37dp"
+            android:layout_weight="1"
+            android:background="@drawable/radius_12dp_cut">
+
+            <com.cathaybk.dbs.beanknowledge.GradientTextView
+                android:id="@+id/tv_waiting_num_right"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="-39dp"
+                android:fontFamily="@font/noto_sans_tc_medium"
+                android:includeFontPadding="false"
+                android:text="3"
+                android:textSize="100sp"
+                app:endTextColor="@color/dark_mint"
+                app:startTextColor="@color/faded_green" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <!-- 預先備好身分證將加快驗證流程 -->
+    <TextView
+        android:id="@+id/tv_prepare_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/noto_sans_tc_regular"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="預先備好身分證將加快驗證流程"
+        android:textColor="@color/oxford_blue"
+        android:textSize="16sp" />
+
+    <!-- 取消交易 -->
+    <TextView
+        android:id="@+id/tv_cancel_trading"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="37dp"
+        android:background="@drawable/radius_8dp_cut"
+        android:fontFamily="@font/noto_sans_tc_medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="取消交易"
+        android:textColor="@color/apple"
+        android:textSize="22sp" />
+
+</LinearLayout>
