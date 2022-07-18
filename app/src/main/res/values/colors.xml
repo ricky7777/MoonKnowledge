@@ -15,5 +15,7 @@
     <color name="dark_mint">#4fb980</color>
     <color name="apple">#4ab234</color>
     <color name="pumkin">#fc771d</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="gray95">#f2f2f2</color>
 
 </resources>
