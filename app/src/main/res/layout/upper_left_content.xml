@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="286dp"
+    android:layout_width="242dp"
     android:layout_height="wrap_content"
-    android:layout_marginStart="168dp"
+    android:layout_marginStart="191dp"
     android:layout_marginTop="56dp"
     android:orientation="vertical">
 
     <!-- 這是勾勾圖 -->
-    <ImageView
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/iv_nike"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/ic_status_l" />
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/ic_success_circle_green" />
 
-    <!-- 已收到您的資料，請稍候片刻 -->
+    <!-- 請備好身分證並稍候片刻 -->
     <TextView
         android:id="@+id/tv_received_hint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="0dp"
         android:fontFamily="@font/noto_sans_tc_medium"
         android:gravity="center"
         android:includeFontPadding="false"
-        android:text="已收到您的資料，請稍候片刻"
+        android:text="請備好身分證並稍候片刻"
         android:textColor="@color/oxford_blue"
         android:textSize="22sp" />
 
@@ -67,7 +70,7 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="37dp"
+            android:layout_marginStart="15dp"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:background="@drawable/radius_12dp_cut">
@@ -91,7 +94,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="37dp"
+            android:layout_marginEnd="15dp"
             android:layout_weight="1"
             android:background="@drawable/radius_12dp_cut">
 
@@ -111,28 +114,14 @@
 
     </LinearLayout>
 
-
-    <!-- 預先備好身分證將加快驗證流程 -->
-    <TextView
-        android:id="@+id/tv_prepare_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/noto_sans_tc_regular"
-        android:gravity="center"
-        android:includeFontPadding="false"
-        android:text="預先備好身分證將加快驗證流程"
-        android:textColor="@color/oxford_blue"
-        android:textSize="16sp" />
-
     <!-- 取消交易 -->
     <TextView
         android:id="@+id/tv_cancel_trading"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="37dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="5dp"
         android:background="@drawable/radius_8dp_cut"
         android:fontFamily="@font/noto_sans_tc_medium"
         android:gravity="center"
