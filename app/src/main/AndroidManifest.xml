@@ -17,6 +17,12 @@
             android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="landscape">
+        </activity>
+
+        <activity
+            android:name=".FordActivity"
+            android:exported="true"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.MAIN" />
