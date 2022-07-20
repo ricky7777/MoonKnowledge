@@ -27,6 +27,7 @@ class MainActivity : FragmentActivity() {
 
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fl_bean_knowledge, BeanKnowledgeFragment())
+        transaction.replace(R.id.fl_waiting, WaitingFragment())
         transaction.commit()
     }
 
