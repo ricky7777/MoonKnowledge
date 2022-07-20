@@ -11,7 +11,7 @@
 
     <include
         android:id="@+id/upper_left_content"
-        layout="@layout/upper_left_content"
+        layout="@layout/bean_left_content"
         android:layout_width="242dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="191dp"
@@ -23,7 +23,7 @@
 
     <include
         android:id="@+id/bottom_left_content"
-        layout="@layout/bottom_left_content"
+        layout="@layout/bean_countdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="22dp"

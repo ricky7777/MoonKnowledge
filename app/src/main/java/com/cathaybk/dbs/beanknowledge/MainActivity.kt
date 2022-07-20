@@ -5,20 +5,19 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.view.View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
 import android.view.WindowManager
-import android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
 import com.cathaybk.dbs.beanknowledge.databinding.MainActivityBinding
+import com.cathaybk.dbs.beanknowledge.model.BeanCardModel
 
 
 /**
  * Created by Ricky on 2022/7/5.
  */
-class MainActivity : Activity() {
+class MainActivity : Activity(), MainContract.View {
     private lateinit var binding: MainActivityBinding
     private var rightNumber = 0
     private var leftNumber = 0
-
+    private var presenter: MainContract.Presenter = MainPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setStatusBarTransparent()
@@ -29,10 +28,10 @@ class MainActivity : Activity() {
                 upperLeftContent.tvCancelTrading.setOnClickListener { cancelTrading() }
             }
         updateVariable()
+        presenter.showBeanContent()
     }
 
     private fun cancelTrading() {
-
         if (rightNumber == 9 && leftNumber == 9) {
             return
         }
@@ -42,9 +41,7 @@ class MainActivity : Activity() {
         } else {
             calculNum()
         }
-
         updateVariable()
-
     }
 
     private fun updateVariable() {
@@ -73,11 +70,15 @@ class MainActivity : Activity() {
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.statusBarColor = Color.TRANSPARENT
-            window.navigationBarColor = Color.rgb(242,242,242)
+            window.navigationBarColor = Color.rgb(242, 242, 242)
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //4.4 全透明状态栏
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         }
+    }
+
+    override fun showTopic(data: BeanCardModel) {
+        binding.upperLeftContent.tvReceivedHint.text = data.title
     }
 
 }
