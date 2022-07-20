@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MoonKnowledge</string>
+    <string name="pair_teller_for_you">為您服務"</string>
+    <string name="pair_teller_string">%1s %2s</string>
 </resources>

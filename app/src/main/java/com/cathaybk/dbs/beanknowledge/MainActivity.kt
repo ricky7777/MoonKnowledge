@@ -6,15 +6,17 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.cathaybk.dbs.beanknowledge.databinding.MainActivityBinding
+import com.cathaybk.dbs.beanknowledge.databinding.PairActivityBinding
 import com.cathaybk.dbs.beanknowledge.model.BeanCardModel
-
 
 /**
  * Created by Ricky on 2022/7/5.
  */
-class MainActivity : Activity(), MainContract.View {
-    private lateinit var binding: MainActivityBinding
+class MainActivity : FragmentActivity(), MainContract.View {
+    private lateinit var binding: PairActivityBinding
     private var rightNumber = 0
     private var leftNumber = 0
     private var presenter: MainContract.Presenter = MainPresenter(this)
@@ -22,13 +24,15 @@ class MainActivity : Activity(), MainContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         setStatusBarTransparent()
         super.onCreate(savedInstanceState)
-        binding = MainActivityBinding.inflate(layoutInflater)
+        binding = PairActivityBinding.inflate(layoutInflater)
             .apply {
                 setContentView(root)
-                upperLeftContent.tvCancelTrading.setOnClickListener { cancelTrading() }
             }
         updateVariable()
-        presenter.showBeanContent()
+
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fl_bean_knowledge, BeanKnowledgeFragment())
+        transaction.commit()
     }
 
     private fun cancelTrading() {
@@ -45,11 +49,6 @@ class MainActivity : Activity(), MainContract.View {
     }
 
     private fun updateVariable() {
-        binding.upperLeftContent.apply {
-            tvWaitingNumLeft.text = (leftNumber).toString()
-            tvWaitingNumRight.text = (rightNumber).toString()
-
-        }
     }
 
     private fun calculCarryNum() {

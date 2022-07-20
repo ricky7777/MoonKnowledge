@@ -14,7 +14,7 @@
         layout="@layout/bean_left_content"
         android:layout_width="242dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="191dp"
+        android:layout_marginStart="168dp"
         android:layout_marginTop="56dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
