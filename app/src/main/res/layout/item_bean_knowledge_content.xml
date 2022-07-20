@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_radius_12"
+    android:backgroundTint="@color/white">
+
+    <View
+        android:id="@+id/view_title_tab"
+        android:layout_width="16dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="48dp"
+        android:background="@color/sage"
+        app:layout_constraintBottom_toBottomOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_title" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/commonTextH2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="48dp"
+        android:maxLines="2"
+        android:text="行情持續看好，價格走高的市場為什麼稱為牛市？"
+        android:textColor="@color/oxford_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/view_title_tab"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_sub_title"
+        style="@style/commonTextH5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="48dp"
+        android:maxLines="1"
+        android:text="牛是財富與力量的象徵"
+        android:textColor="@color/oxford_blue"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="64dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sub_title">
+
+        <TextView
+            android:id="@+id/tv_description_1"
+            style="@style/commonTextBody1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="牛的眼睛向上望，且在攻擊人時，一定用其角向「上」頂，象徵股市上漲。"
+            android:textColor="@color/oxford_blue" />
+
+        <TextView
+            android:id="@+id/tv_description_2"
+            style="@style/commonTextBody1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="股市上漲時，投資人與證券經紀人擠在狹小的證券交易所中，萬頭攅動，如傳統牛市集的圈牛全一般壯觀，故稱之為牛市。"
+            android:textColor="@color/oxford_blue" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

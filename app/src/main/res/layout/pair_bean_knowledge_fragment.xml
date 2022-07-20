@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 對稱考量 上下留40dp 左右留100dp -->
+    <com.cathaybk.dbs.beanknowledge.DraggableRelativeLayout
+        android:id="@+id/rl_parent"
+        android:layout_width="784dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="-50dp"
+        app:layout_constraintEnd_toEndOf="parent">
+        <!--layout_marginTop 如果不含status bar 106dp-->
+
+        <include
+            android:id="@+id/in_slide_card_template"
+            layout="@layout/item_bean_knowledge_card"
+            android:layout_width="592dp"
+            android:layout_height="542dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </com.cathaybk.dbs.beanknowledge.DraggableRelativeLayout>
+
+    <!--160dp(image_height) -48dp(腳到屁股的高度) -46dp(card_margin) = 66dp -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-66dp"
+        android:layout_marginEnd="100dp"
+        android:src="@drawable/img_mamechishiki"
+        app:layout_constraintEnd_toEndOf="@id/rl_parent"
+        app:layout_constraintTop_toTopOf="@id/rl_parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

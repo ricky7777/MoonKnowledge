@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/in_teller"
+        layout="@layout/pair_teller_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/in_waiting"
+        layout="@layout/upper_left_content"
+        android:layout_width="242dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_count_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            style="@style/commonTextCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="為確保您的資料安全，閒置"
+            android:textColor="@color/aluminium" />
+
+        <TextView
+            android:id="@+id/tv_count_down"
+            style="@style/commonTextCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="29 分 58 秒後自動登出"
+            android:textColor="@color/pumkin" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_connection_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            style="@style/commonTextCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="網路不穩定，正努力為您連線中"
+            android:textColor="@color/aluminium" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="loading01.json"
+            app:lottie_loop="true" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

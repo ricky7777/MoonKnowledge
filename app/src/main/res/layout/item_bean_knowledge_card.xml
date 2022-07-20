@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.cathaybk.dbs.scardview.SCardViewUtils xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="592dp"
+    android:layout_height="542dp"
+    android:layout_gravity="center"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardLightDirection="none"
+    app:cardPreventCornerOverlap="false">
+    <!--左右陰影4dp 上下6dp-->
+
+    <include
+        android:id="@+id/cl_content"
+        layout="@layout/item_bean_knowledge_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="22dp"
+        android:gravity="center">
+
+        <TextView
+            style="@style/commonTextCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="往右滑顯示下一張"
+            android:textColor="@color/aluminium" />
+
+        <ImageView
+            android:id="@+id/iv_icon_swipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_swipe" />
+
+    </LinearLayout>
+
+</com.cathaybk.dbs.scardview.SCardViewUtils>
