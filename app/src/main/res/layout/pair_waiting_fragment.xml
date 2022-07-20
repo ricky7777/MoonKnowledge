@@ -68,12 +68,12 @@
             android:text="網路不穩定，正努力為您連線中"
             android:textColor="@color/aluminium" />
 
-        <com.airbnb.lottie.LottieAnimationView
+        <!--<com.airbnb.lottie.LottieAnimationView
             android:layout_width="24dp"
             android:layout_height="24dp"
             app:lottie_autoPlay="true"
             app:lottie_fileName="loading01.json"
-            app:lottie_loop="true" />
+            app:lottie_loop="true" />-->
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
