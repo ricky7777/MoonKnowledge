@@ -1,25 +1,20 @@
 package com.cathaybk.dbs.beanknowledge
 
-import android.app.Activity
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import com.cathaybk.dbs.beanknowledge.databinding.MainActivityBinding
 import com.cathaybk.dbs.beanknowledge.databinding.PairActivityBinding
-import com.cathaybk.dbs.beanknowledge.model.BeanCardModel
 
 /**
  * Created by Ricky on 2022/7/5.
  */
-class MainActivity : FragmentActivity(), MainContract.View {
+class MainActivity : FragmentActivity() {
     private lateinit var binding: PairActivityBinding
     private var rightNumber = 0
     private var leftNumber = 0
-    private var presenter: MainContract.Presenter = MainPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setStatusBarTransparent()
@@ -74,10 +69,6 @@ class MainActivity : FragmentActivity(), MainContract.View {
             //4.4 全透明状态栏
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         }
-    }
-
-    override fun showTopic(data: BeanCardModel) {
-        binding.upperLeftContent.tvReceivedHint.text = data.title
     }
 
 }

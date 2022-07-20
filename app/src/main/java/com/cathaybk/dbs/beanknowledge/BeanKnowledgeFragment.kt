@@ -8,8 +8,11 @@ import android.view.ViewGroup
 import androidx.customview.widget.ViewDragHelper
 import androidx.fragment.app.Fragment
 import com.cathaybk.dbs.beanknowledge.databinding.PairBeanKnowledgeFragmentBinding
+import com.cathaybk.dbs.beanknowledge.model.BeanCardModel
 
-class BeanKnowledgeFragment : Fragment() {
+class BeanKnowledgeFragment : Fragment(), MainContract.View {
+    private var presenter: MainContract.Presenter = MainPresenter(this)
+
     companion object {
         private const val DROP_CARD_X_VECTOR = 6000
         private const val DROP_CARD_X = 150
@@ -125,5 +128,9 @@ class BeanKnowledgeFragment : Fragment() {
 
     private fun dpToPx(dp: Int): Int {
         return (dp * Resources.getSystem().displayMetrics.density + 0.5).toInt()
+    }
+
+    override fun showTopic(data: BeanCardModel) {
+//        binding.tvReceivedHint.text = data.title
     }
 }

@@ -4,7 +4,7 @@
     android:id="@+id/ll_root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dbs_321"
+    android:background="@drawable/dbs_result_ot_ppage"
     android:clickable="true"
     android:focusable="true"
     android:orientation="vertical">
