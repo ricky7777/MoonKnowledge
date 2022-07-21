@@ -31,26 +31,12 @@
         android:textColor="@color/oxford_blue"
         android:textSize="22sp" />
 
-    <!-- 時間 -->
-    <TextView
-        android:id="@+id/tv_received_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/noto_sans_tc_regular"
-        android:gravity="center"
-        android:includeFontPadding="false"
-        android:text="2022/03/12   09:40:35"
-        android:textColor="@color/aluminium"
-        android:textSize="16sp" />
-
-
     <!-- 等待人數 -->
     <TextView
         android:id="@+id/tv_waiting_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="72dp"
         android:fontFamily="@font/noto_sans_tc_medium"
         android:gravity="center"
         android:includeFontPadding="false"
