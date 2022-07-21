@@ -1,14 +1,14 @@
 package com.cathaybk.dbs.beanknowledge
 
-import com.cathaybk.dbs.beanknowledge.model.BeanCardModel
+import com.cathaybk.dbs.beanknowledge.model.BeanKnowledgeModel
 
 /**
  * Created by Ricky on 2022/7/20.
  */
-interface MainContract {
+interface BeanKnowledgeContract {
 
     interface View {
-        fun showTopic(data: BeanCardModel)
+        fun showTopic(data: BeanKnowledgeModel)
     }
 
     interface Presenter {
