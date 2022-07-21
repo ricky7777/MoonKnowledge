@@ -21,12 +21,15 @@ class WaitingNumFragment : Fragment(), WaitingNumContract.View {
         savedInstanceState: Bundle?
     ): View {
         binding = PairWaitingFragmentBinding.inflate(inflater)
-        binding.inWaiting.tvCancelTrading.setOnClickListener { presenter.showClickChange() }
-        return binding.root
+        return binding.apply {
+            inWaiting.tvCancelTrading.setOnClickListener { presenter.showClickChange() }
+        }.root
     }
 
     override fun showNum(data: WaitingNumImageIdModel) {
-        binding.inWaiting.ivWaitingNumLeft.setImageResource(data.leftImageId)
-        binding.inWaiting.ivWaitingNumRight.setImageResource(data.rightImageId)
+        binding.inWaiting.apply {
+            ivWaitingNumLeft.setImageResource(data.leftImageId)
+            ivWaitingNumRight.setImageResource(data.rightImageId)
+        }
     }
 }

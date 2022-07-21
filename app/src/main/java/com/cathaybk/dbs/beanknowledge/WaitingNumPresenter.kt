@@ -10,26 +10,26 @@ class WaitingNumPresenter(val view: WaitingNumContract.View) : WaitingNumContrac
 
     private var clickCount = 0
     override fun showClickChange() {
-        var sourceData = WaitingNumGetModel()
-        var imageData = WaitingNumImageIdModel()
-        if(checkValid(sourceData)){
-            imageData = changeNum(sourceData, imageData)
-        }else{
-            imageData.rightImageId = R.drawable.num9
-            imageData.leftImageId = R.drawable.num9
+        val sourceData = WaitingNumGetModel()
+        val imageData = WaitingNumImageIdModel()
+        if (checkValid(sourceData)) {
+            changeNum()
         }
+        numToImage(sourceData, imageData)
         view.showNum(imageData)
     }
 
-    private fun checkValid(sourceData: WaitingNumGetModel) : Boolean{
+    private fun checkValid(sourceData: WaitingNumGetModel): Boolean {
         return (sourceData.Num + clickCount < 99)
     }
 
-
-    private fun changeNum(sourceData: WaitingNumGetModel, imageData : WaitingNumImageIdModel) : WaitingNumImageIdModel {
+    private fun changeNum() {
         clickCount += 1
+    }
+
+    private fun numToImage(sourceData: WaitingNumGetModel, imageData: WaitingNumImageIdModel) {
         sourceData.Num += clickCount
-        when (sourceData.Num/10) {
+        when (sourceData.Num / 10) {
             0 -> imageData.leftImageId = R.drawable.num0
             1 -> imageData.leftImageId = R.drawable.num1
             2 -> imageData.leftImageId = R.drawable.num2
@@ -41,7 +41,7 @@ class WaitingNumPresenter(val view: WaitingNumContract.View) : WaitingNumContrac
             8 -> imageData.leftImageId = R.drawable.num8
             9 -> imageData.leftImageId = R.drawable.num9
         }
-        when (sourceData.Num%10) {
+        when (sourceData.Num % 10) {
             0 -> imageData.rightImageId = R.drawable.num0
             1 -> imageData.rightImageId = R.drawable.num1
             2 -> imageData.rightImageId = R.drawable.num2
@@ -53,7 +53,5 @@ class WaitingNumPresenter(val view: WaitingNumContract.View) : WaitingNumContrac
             8 -> imageData.rightImageId = R.drawable.num8
             9 -> imageData.rightImageId = R.drawable.num9
         }
-        return imageData
     }
-
 }
