@@ -9,7 +9,6 @@ import androidx.customview.widget.ViewDragHelper
 import androidx.fragment.app.Fragment
 import com.cathaybk.dbs.beanknowledge.databinding.PairBeanKnowledgeFragmentBinding
 import com.cathaybk.dbs.beanknowledge.model.BeanKnowledgeModel
-import com.cathaybk.dbs.beanknowledge.model.WaitingNumModel
 
 class BeanKnowledgeFragment : Fragment(), BeanKnowledgeContract.View {
     companion object {
@@ -24,6 +23,7 @@ class BeanKnowledgeFragment : Fragment(), BeanKnowledgeContract.View {
     private var viewReadyToRemoved: View? = null
     private var cardNumber = 0
     private lateinit var binding: PairBeanKnowledgeFragmentBinding
+    private var presenter: BeanKnowledgeContract.Presenter = BeanKnowledgePresenter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,6 +31,7 @@ class BeanKnowledgeFragment : Fragment(), BeanKnowledgeContract.View {
         savedInstanceState: Bundle?
     ): View {
         binding = PairBeanKnowledgeFragmentBinding.inflate(inflater)
+        presenter.showBeanContent()
         return binding.root
     }
 
@@ -129,6 +130,9 @@ class BeanKnowledgeFragment : Fragment(), BeanKnowledgeContract.View {
         return (dp * Resources.getSystem().displayMetrics.density + 0.5).toInt()
     }
     override fun showTopic(data: BeanKnowledgeModel) {
-        //binding.inSlideCardTemplate.clContent.viewTitleTab = data.title
+        binding.inSlideCardTemplate.clContent.tvTitle.text = data.title
+        binding.inSlideCardTemplate.clContent.tvSubTitle.text = data.subTitle
+        binding.inSlideCardTemplate.clContent.tvDescription1.text = data.content1
+        binding.inSlideCardTemplate.clContent.tvDescription2.text = data.content2
     }
 }

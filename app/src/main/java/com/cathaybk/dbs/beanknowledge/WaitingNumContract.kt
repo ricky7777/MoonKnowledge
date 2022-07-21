@@ -1,6 +1,6 @@
 package com.cathaybk.dbs.beanknowledge
 
-import com.cathaybk.dbs.beanknowledge.model.WaitingNumModel
+import com.cathaybk.dbs.beanknowledge.model.WaitingNumImageIdModel
 
 /**
  * Created by HouYi on 2022/7/21.
@@ -8,11 +8,10 @@ import com.cathaybk.dbs.beanknowledge.model.WaitingNumModel
 interface WaitingNumContract {
 
     interface View {
-        fun showNum(data: WaitingNumModel)
+        fun showNum(data: WaitingNumImageIdModel)
     }
 
     interface Presenter {
-        fun showNumContent()
         fun showClickChange()
     }
 }

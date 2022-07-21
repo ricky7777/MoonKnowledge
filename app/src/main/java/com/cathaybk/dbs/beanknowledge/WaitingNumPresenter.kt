@@ -1,48 +1,59 @@
 package com.cathaybk.dbs.beanknowledge
 
-import com.cathaybk.dbs.beanknowledge.model.WaitingNumModel
+import com.cathaybk.dbs.beanknowledge.model.WaitingNumGetModel
+import com.cathaybk.dbs.beanknowledge.model.WaitingNumImageIdModel
 
 /**
  * Created by HouYi on 2022/7/21.
  */
 class WaitingNumPresenter(val view: WaitingNumContract.View) : WaitingNumContract.Presenter {
-    var data = WaitingNumModel()
-    var rightNumber = data.rightNum
-    var leftNumber = data.leftNum
 
-    override fun showNumContent() {
-        view.showNum(data)
-    }
-
+    private var clickCount = 0
     override fun showClickChange() {
-        cancelTrading()
-        view.showNum(data)
-    }
-
-    private fun cancelTrading() {
-        if (rightNumber == 9 && leftNumber == 9) {
-            return
+        var sourceData = WaitingNumGetModel()
+        var imageData = WaitingNumImageIdModel()
+        if(checkValid(sourceData)){
+            imageData = changeNum(sourceData, imageData)
+        }else{
+            imageData.rightImageId = R.drawable.num9
+            imageData.leftImageId = R.drawable.num9
         }
+        view.showNum(imageData)
+    }
 
-        if (rightNumber == 9) {
-            calculCarryNum()
-        } else {
-            calculNum()
+    private fun checkValid(sourceData: WaitingNumGetModel) : Boolean{
+        return (sourceData.Num + clickCount < 99)
+    }
+
+
+    private fun changeNum(sourceData: WaitingNumGetModel, imageData : WaitingNumImageIdModel) : WaitingNumImageIdModel {
+        clickCount += 1
+        sourceData.Num += clickCount
+        when (sourceData.Num/10) {
+            0 -> imageData.leftImageId = R.drawable.num0
+            1 -> imageData.leftImageId = R.drawable.num1
+            2 -> imageData.leftImageId = R.drawable.num2
+            3 -> imageData.leftImageId = R.drawable.num3
+            4 -> imageData.leftImageId = R.drawable.num4
+            5 -> imageData.leftImageId = R.drawable.num5
+            6 -> imageData.leftImageId = R.drawable.num6
+            7 -> imageData.leftImageId = R.drawable.num7
+            8 -> imageData.leftImageId = R.drawable.num8
+            9 -> imageData.leftImageId = R.drawable.num9
         }
-        updateVariable()
+        when (sourceData.Num%10) {
+            0 -> imageData.rightImageId = R.drawable.num0
+            1 -> imageData.rightImageId = R.drawable.num1
+            2 -> imageData.rightImageId = R.drawable.num2
+            3 -> imageData.rightImageId = R.drawable.num3
+            4 -> imageData.rightImageId = R.drawable.num4
+            5 -> imageData.rightImageId = R.drawable.num5
+            6 -> imageData.rightImageId = R.drawable.num6
+            7 -> imageData.rightImageId = R.drawable.num7
+            8 -> imageData.rightImageId = R.drawable.num8
+            9 -> imageData.rightImageId = R.drawable.num9
+        }
+        return imageData
     }
 
-    private fun updateVariable() {
-        data.rightNum = rightNumber
-        data.leftNum = leftNumber
-    }
-
-    private fun calculCarryNum() {
-        rightNumber = 0
-        leftNumber += 1
-    }
-
-    private fun calculNum() {
-        rightNumber += 1
-    }
 }
