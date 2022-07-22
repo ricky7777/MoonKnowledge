@@ -25,18 +25,18 @@ class WaitingNumPresenter(val view: WaitingNumContract.View) : WaitingNumContrac
     }
 
     private fun isValid(sourceData: WaitingNumGetModel): Boolean {
-        return (sourceData.num + clickCount < 99)
+        return (sourceData.waitingNum + clickCount < 99)
     }
 
     private fun addCount(sourceData: WaitingNumGetModel) {
-        sourceData.num += (++clickCount)
+        sourceData.waitingNum += (++clickCount)
     }
 
     private fun getImageIdModel(sourceData: WaitingNumGetModel): WaitingNumImageIdModel {
 //        run let apply with
         return WaitingNumImageIdModel().apply {
-            leftImageId = getImgId(sourceData.num / 10)
-            rightImageId = getImgId(sourceData.num % 10)
+            leftImageId = getImgId(sourceData.waitingNum / 10)
+            rightImageId = getImgId(sourceData.waitingNum % 10)
         }
     }
 
