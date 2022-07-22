@@ -29,7 +29,7 @@ class WaitingNumPresenter(val view: WaitingNumContract.View) : WaitingNumContrac
     }
 
     private fun addCount(sourceData: WaitingNumGetModel) {
-        sourceData.num += (clickCount + 1)
+        sourceData.num += (++clickCount)
     }
 
     private fun getImageIdModel(sourceData: WaitingNumGetModel): WaitingNumImageIdModel {
