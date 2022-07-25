@@ -7,10 +7,6 @@ import com.cathaybk.dbs.beanknowledge.model.WaitingNumImageIdModel
  */
 interface WaitingNumContract {
 
-    interface Model {
-
-    }
-
     interface View {
         fun showNum(data: WaitingNumImageIdModel)
     }

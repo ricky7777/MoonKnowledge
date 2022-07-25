@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.cathaybk.dbs.beanknowledge.databinding.PairWaitingFragmentBinding
 import com.cathaybk.dbs.beanknowledge.model.WaitingNumImageIdModel
+import java.util.*
 
 /**
  * Created by HouYi on 2022/7/21.
@@ -27,7 +28,12 @@ class WaitingNumFragment : Fragment(), WaitingNumContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-            setEvent()
+
+            Timer().schedule(object : TimerTask() {
+                override fun run() {
+                    setEvent()//需要执行的任务
+                }
+            }, 0, 10000)
         }
     }
 
@@ -45,4 +51,6 @@ class WaitingNumFragment : Fragment(), WaitingNumContract.View {
             ivWaitingNumRight.setImageResource(data.rightImageId)
         }
     }
+
+
 }

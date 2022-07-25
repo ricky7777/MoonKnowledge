@@ -29,6 +29,7 @@ class WaitingNumPresenter(val view: WaitingNumContract.View) : WaitingNumContrac
             ) {
                 Log.d("", "")
                 sourceNum = response.body()!!.waitingNum
+                clickCount = 0
                 val imageData = getImageIdModel(sourceNum)
                 view.showNum(imageData)
             }
@@ -66,12 +67,12 @@ class WaitingNumPresenter(val view: WaitingNumContract.View) : WaitingNumContrac
         })
     }
 
-    private fun errorFlow() {
-        // show dialog
-    }
-
     private fun isValid(sourceData: Int): Boolean {
         return (sourceData + clickCount < 99)
+    }
+
+    private fun errorFlow() {
+        // show dialog
     }
 
     private fun addCount(sourceData: Int): Int {
