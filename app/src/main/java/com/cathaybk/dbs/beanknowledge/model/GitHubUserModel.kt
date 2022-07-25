@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by Ricky on 2022/7/25.
  */
-data class GitHubUser(
+data class GitHubUserModel(
     val login: String,
 
     @SerializedName("avatar_url")

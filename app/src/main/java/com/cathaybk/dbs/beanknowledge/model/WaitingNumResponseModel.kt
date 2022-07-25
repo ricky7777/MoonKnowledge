@@ -5,9 +5,9 @@ import com.cathaybk.dbs.beanknowledge.WaitingNumContract
 /**
  * Created by HouYi on 2022/7/21.
  */
-data class WaitingNumGetModel(
-    var waitingNum :Int = 0
-):WaitingNumContract.Model{
+data class WaitingNumResponseModel(
+    var waitingNum: Int = 0
+) : WaitingNumContract.Model {
 
 }
 

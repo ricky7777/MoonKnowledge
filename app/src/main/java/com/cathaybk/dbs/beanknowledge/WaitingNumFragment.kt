@@ -36,7 +36,7 @@ class WaitingNumFragment : Fragment(), WaitingNumContract.View {
             presenter.showClickChange()
         }
 
-        presenter.showGitHubUsers()
+        presenter.updateWaitingNum()
     }
 
     override fun showNum(data: WaitingNumImageIdModel) {

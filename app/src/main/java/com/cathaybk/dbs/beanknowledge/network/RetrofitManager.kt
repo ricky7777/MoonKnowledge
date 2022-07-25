@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  * Created by HouYi on 2022/7/22.
  */
 object RetrofitManager {
-    private val URL = "http://localhost:8080/"
+    private val URL = "http://192.168.1.51:8080/"
     private val URL_GITHUB_TEST = "https://api.github.com/"
     fun getBeanRetrofit(): Retrofit {
         return Retrofit.Builder()
