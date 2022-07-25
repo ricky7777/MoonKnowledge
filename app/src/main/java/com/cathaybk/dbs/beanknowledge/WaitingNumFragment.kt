@@ -7,11 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.cathaybk.dbs.beanknowledge.databinding.PairWaitingFragmentBinding
 import com.cathaybk.dbs.beanknowledge.model.WaitingNumImageIdModel
-import com.cathaybk.dbs.beanknowledge.network.RetrofitManager
-import com.cathaybk.dbs.beanknowledge.network.WaitingNumApi
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 /**
  * Created by HouYi on 2022/7/21.

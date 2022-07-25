@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.customview.widget.ViewDragHelper
 import androidx.fragment.app.Fragment
 import com.cathaybk.dbs.beanknowledge.databinding.PairBeanKnowledgeFragmentBinding
-import com.cathaybk.dbs.beanknowledge.model.BeanKnowledgeModel
+import com.cathaybk.dbs.beanknowledge.model.BeanKnowledgeTopicModel
 
 class BeanKnowledgeFragment : Fragment(), BeanKnowledgeContract.View {
     companion object {
@@ -129,7 +129,7 @@ class BeanKnowledgeFragment : Fragment(), BeanKnowledgeContract.View {
     private fun dpToPx(dp: Int): Int {
         return (dp * Resources.getSystem().displayMetrics.density + 0.5).toInt()
     }
-    override fun showTopic(data: BeanKnowledgeModel) {
+    override fun showTopic(data: BeanKnowledgeTopicModel) {
         binding.inSlideCardTemplate.clContent.tvTitle.text = data.title
         binding.inSlideCardTemplate.clContent.tvSubTitle.text = data.subTitle
         binding.inSlideCardTemplate.clContent.tvDescription1.text = data.content1

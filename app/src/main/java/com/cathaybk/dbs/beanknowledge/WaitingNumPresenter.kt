@@ -2,6 +2,8 @@ package com.cathaybk.dbs.beanknowledge
 
 import com.cathaybk.dbs.beanknowledge.model.WaitingNumGetModel
 import com.cathaybk.dbs.beanknowledge.model.WaitingNumImageIdModel
+import com.cathaybk.dbs.beanknowledge.network.BeanknowledgeService
+import com.cathaybk.dbs.beanknowledge.network.RetrofitManager
 
 /**
  * Created by HouYi on 2022/7/21.
@@ -10,7 +12,11 @@ class WaitingNumPresenter(val view: WaitingNumContract.View) : WaitingNumContrac
 
     private var clickCount = 0
     override fun showClickChange() {
-        val sourceData = WaitingNumGetModel()
+
+        val service = RetrofitManager().getRetrofit().create(BeanknowledgeService::class.java)
+        val result = service.getWaitingNumber().execute().body()
+
+        val sourceData = result
         if (isValid(sourceData)) {
             addCount(sourceData)
             val imageData = getImageIdModel(sourceData)
