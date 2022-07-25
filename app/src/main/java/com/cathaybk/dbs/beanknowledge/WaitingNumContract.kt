@@ -17,5 +17,6 @@ interface WaitingNumContract {
 
     interface Presenter {
         fun showClickChange()
+        fun showGitHubUsers()
     }
 }

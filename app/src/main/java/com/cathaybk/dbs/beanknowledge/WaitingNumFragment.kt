@@ -1,10 +1,10 @@
 package com.cathaybk.dbs.beanknowledge
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.cathaybk.dbs.beanknowledge.databinding.PairWaitingFragmentBinding
 import com.cathaybk.dbs.beanknowledge.model.WaitingNumImageIdModel
 
@@ -21,11 +21,22 @@ class WaitingNumFragment : Fragment(), WaitingNumContract.View {
         savedInstanceState: Bundle?
     ): View {
         binding = PairWaitingFragmentBinding.inflate(inflater)
-        return binding.apply {
-            inWaiting.tvCancelTrading.setOnClickListener {
-                presenter.showClickChange()
-            }
-        }.root
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.apply {
+            setEvent()
+        }
+    }
+
+    private fun PairWaitingFragmentBinding.setEvent() {
+        inWaiting.tvCancelTrading.setOnClickListener {
+            presenter.showClickChange()
+        }
+
+        presenter.showGitHubUsers()
     }
 
     override fun showNum(data: WaitingNumImageIdModel) {

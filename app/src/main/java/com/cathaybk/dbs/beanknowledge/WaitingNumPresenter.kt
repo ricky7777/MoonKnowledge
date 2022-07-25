@@ -1,9 +1,15 @@
 package com.cathaybk.dbs.beanknowledge
 
+import android.util.Log
+import com.cathaybk.dbs.beanknowledge.model.GitHubUser
 import com.cathaybk.dbs.beanknowledge.model.WaitingNumGetModel
 import com.cathaybk.dbs.beanknowledge.model.WaitingNumImageIdModel
-import com.cathaybk.dbs.beanknowledge.network.BeanknowledgeService
+import com.cathaybk.dbs.beanknowledge.network.BeanKnowledgeService
+import com.cathaybk.dbs.beanknowledge.network.GitHubService
 import com.cathaybk.dbs.beanknowledge.network.RetrofitManager
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * Created by HouYi on 2022/7/21.
@@ -12,18 +18,31 @@ class WaitingNumPresenter(val view: WaitingNumContract.View) : WaitingNumContrac
 
     private var clickCount = 0
     override fun showClickChange() {
-
-        val service = RetrofitManager().getRetrofit().create(BeanknowledgeService::class.java)
-        val result = service.getWaitingNumber().execute().body()
-
-        val sourceData = result
-        if (isValid(sourceData)) {
-            addCount(sourceData)
-            val imageData = getImageIdModel(sourceData)
-            view.showNum(imageData)
-        } else {
+        val service = RetrofitManager.getBeanRetrofit().create(BeanKnowledgeService::class.java)
+        service.getWaitingNumber().execute().body()?.run {
+            if (isValid(this)) {
+                addCount(this)
+                val imageData = getImageIdModel(this)
+                view.showNum(imageData)
+            } else {
+                errorFlow()
+            }
+        } ?: run {
             errorFlow()
         }
+    }
+
+    override fun showGitHubUsers() {
+        val service = RetrofitManager.getGitHubRetrofit().create(GitHubService::class.java)
+        service.getUserList().enqueue(object : Callback<List<GitHubUser>> {
+            override fun onResponse(call: Call<List<GitHubUser>>, response: Response<List<GitHubUser>>) {
+                Log.d("", "")
+            }
+
+            override fun onFailure(call: Call<List<GitHubUser>>, t: Throwable) {
+                Log.d("", "")
+            }
+        })
     }
 
     private fun errorFlow() {

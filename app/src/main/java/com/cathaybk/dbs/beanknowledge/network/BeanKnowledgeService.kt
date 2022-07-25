@@ -8,7 +8,7 @@ import retrofit2.http.*
 /**
  * Created by HouYi on 2022/7/22.
  */
-interface BeanknowledgeService {
+interface BeanKnowledgeService {
     @GET("waitline")// 設置一個GET連線，路徑為waitline
     fun getWaitingNumber(): Call<WaitingNumGetModel>
 
