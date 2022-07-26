@@ -28,21 +28,12 @@ class WaitingNumFragment : Fragment(), WaitingNumContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-
             Timer().schedule(object : TimerTask() {
                 override fun run() {
-                    setEvent()//需要执行的任务
+                    presenter.updateWaitingNum()
                 }
-            }, 0, 10000)
+            }, 0, 3000)
         }
-    }
-
-    private fun PairWaitingFragmentBinding.setEvent() {
-        inWaiting.tvCancelTrading.setOnClickListener {
-            presenter.showClickChange()
-        }
-
-        presenter.updateWaitingNum()
     }
 
     override fun showNum(data: WaitingNumImageIdModel) {

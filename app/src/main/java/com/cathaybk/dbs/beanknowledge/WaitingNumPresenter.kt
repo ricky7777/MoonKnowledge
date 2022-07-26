@@ -16,46 +16,36 @@ import retrofit2.Response
  */
 class WaitingNumPresenter(val view: WaitingNumContract.View) : WaitingNumContract.Presenter {
 
-    private var clickCount = 0
     private var sourceId = " "
     private var sourceNum = 0
 
     override fun updateWaitingNum() {
-        val service = RetrofitManager.getBeanRetrofit().create(BeanKnowledgeService::class.java)
+        val service = RetrofitManager.getBeanRetrofit.create(BeanKnowledgeService::class.java)
         service.getWaitingNumber().enqueue(object : Callback<WaitingNumResponseModel> {
-            override fun onResponse(
-                call: Call<WaitingNumResponseModel>,
-                response: Response<WaitingNumResponseModel>
-            ) {
-                Log.d("", "")
-                sourceNum = response.body()!!.waitingNum
-                clickCount = 0
-                val imageData = getImageIdModel(sourceNum)
-                view.showNum(imageData)
+            override fun onResponse(call: Call<WaitingNumResponseModel>, response: Response<WaitingNumResponseModel>) {
+                response.body()?.let {
+                    sourceNum = it.waitingNum
+                    if (isValid(sourceNum)) {
+                        val imageData = getImageIdModel(sourceNum)
+                        view.showNum(imageData)
+                    } else {
+                        errorFlow()
+                    }
+                } ?: run {
+                    errorFlow()
+                }
             }
 
             override fun onFailure(call: Call<WaitingNumResponseModel>, t: Throwable) {
-                Log.d("", "")
+                errorFlow()
             }
         })
-    }
-
-    override fun showClickChange() {
-        if (isValid(sourceNum)) {
-            val imageData = getImageIdModel(addCount(sourceNum))
-            view.showNum(imageData)
-        } else {
-            errorFlow()
-        }
     }
 
     override fun showGitHubUsers() {
         val service = RetrofitManager.getGitHubRetrofit().create(GitHubService::class.java)
         service.getUserById(24).enqueue(object : Callback<GitHubUserModel> {
-            override fun onResponse(
-                call: Call<GitHubUserModel>,
-                response: Response<GitHubUserModel>
-            ) {
+            override fun onResponse(call: Call<GitHubUserModel>, response: Response<GitHubUserModel>) {
                 //Log.d("", "")
                 sourceId = response.body()!!.login
                 Log.d("TESTID", sourceId)
@@ -68,15 +58,11 @@ class WaitingNumPresenter(val view: WaitingNumContract.View) : WaitingNumContrac
     }
 
     private fun isValid(sourceData: Int): Boolean {
-        return (sourceData + clickCount < 99)
+        return (sourceData in 0..99)
     }
 
     private fun errorFlow() {
         // show dialog
-    }
-
-    private fun addCount(sourceData: Int): Int {
-        return sourceData + (++clickCount)
     }
 
     private fun getImageIdModel(sourceData: Int): WaitingNumImageIdModel {

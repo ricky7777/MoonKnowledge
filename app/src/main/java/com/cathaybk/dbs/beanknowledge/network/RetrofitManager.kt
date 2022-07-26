@@ -9,13 +9,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitManager {
     private val URL = "http://192.168.1.51:8080/"
     private val URL_GITHUB_TEST = "https://api.github.com/"
-    fun getBeanRetrofit(): Retrofit {
-        return Retrofit.Builder()
+    
+    val getBeanRetrofit: Retrofit by lazy{
+        Retrofit.Builder()
             .baseUrl(URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
+    
     fun getGitHubRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(URL_GITHUB_TEST)
