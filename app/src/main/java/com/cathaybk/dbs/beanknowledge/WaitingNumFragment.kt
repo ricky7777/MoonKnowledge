@@ -27,13 +27,11 @@ class WaitingNumFragment : Fragment(), WaitingNumContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.apply {
-            Timer().schedule(object : TimerTask() {
-                override fun run() {
-                    presenter.updateWaitingNum()
-                }
-            }, 0, 3000)
-        }
+        Timer().schedule(object : TimerTask() {
+            override fun run() {
+                presenter.updateWaitingNum()
+            }
+        }, 0, 3000)
     }
 
     override fun showNum(data: WaitingNumImageIdModel) {
