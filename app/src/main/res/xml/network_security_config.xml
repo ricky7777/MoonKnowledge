@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Created by HouYi on 2022/7/21, to make api linked with http-->
+
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>

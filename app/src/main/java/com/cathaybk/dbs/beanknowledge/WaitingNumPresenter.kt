@@ -1,48 +1,75 @@
 package com.cathaybk.dbs.beanknowledge
 
-import com.cathaybk.dbs.beanknowledge.model.WaitingNumGetModel
+import android.util.Log
+import com.cathaybk.dbs.beanknowledge.model.GitHubUserModel
+import com.cathaybk.dbs.beanknowledge.model.WaitingNumResponseModel
 import com.cathaybk.dbs.beanknowledge.model.WaitingNumImageIdModel
-import com.cathaybk.dbs.beanknowledge.network.BeanknowledgeService
+import com.cathaybk.dbs.beanknowledge.network.BeanKnowledgeService
+import com.cathaybk.dbs.beanknowledge.network.GitHubService
 import com.cathaybk.dbs.beanknowledge.network.RetrofitManager
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * Created by HouYi on 2022/7/21.
  */
 class WaitingNumPresenter(val view: WaitingNumContract.View) : WaitingNumContract.Presenter {
 
-    private var clickCount = 0
-    override fun showClickChange() {
+    private var sourceId = " "
+    private var sourceNum = 0
 
-        val service = RetrofitManager().getRetrofit().create(BeanknowledgeService::class.java)
-        val result = service.getWaitingNumber().execute().body()
+    override fun updateWaitingNum() {
+        val service = RetrofitManager.getBeanRetrofit.create(BeanKnowledgeService::class.java)
+        service.getWaitingNumber().enqueue(object : Callback<WaitingNumResponseModel> {
+            override fun onResponse(call: Call<WaitingNumResponseModel>, response: Response<WaitingNumResponseModel>) {
+                response.body()?.let {
+                    sourceNum = it.waitingNum
+                    if (isValid(sourceNum)) {
+                        val imageData = getImageIdModel(sourceNum)
+                        view.showNum(imageData)
+                    } else {
+                        errorFlow()
+                    }
+                } ?: run {
+                    errorFlow()
+                }
+            }
 
-        val sourceData = result
-        if (isValid(sourceData)) {
-            addCount(sourceData)
-            val imageData = getImageIdModel(sourceData)
-            view.showNum(imageData)
-        } else {
-            errorFlow()
-        }
+            override fun onFailure(call: Call<WaitingNumResponseModel>, t: Throwable) {
+                errorFlow()
+            }
+        })
+    }
+
+    override fun showGitHubUsers() {
+        val service = RetrofitManager.getGitHubRetrofit().create(GitHubService::class.java)
+        service.getUserById(24).enqueue(object : Callback<GitHubUserModel> {
+            override fun onResponse(call: Call<GitHubUserModel>, response: Response<GitHubUserModel>) {
+                //Log.d("", "")
+                sourceId = response.body()!!.login
+                Log.d("TESTID", sourceId)
+            }
+
+            override fun onFailure(call: Call<GitHubUserModel>, t: Throwable) {
+                Log.d("", "")
+            }
+        })
+    }
+
+    private fun isValid(sourceData: Int): Boolean {
+        return (sourceData in 0..99)
     }
 
     private fun errorFlow() {
         // show dialog
     }
 
-    private fun isValid(sourceData: WaitingNumGetModel): Boolean {
-        return (sourceData.waitingNum + clickCount < 99)
-    }
-
-    private fun addCount(sourceData: WaitingNumGetModel) {
-        sourceData.waitingNum += (++clickCount)
-    }
-
-    private fun getImageIdModel(sourceData: WaitingNumGetModel): WaitingNumImageIdModel {
+    private fun getImageIdModel(sourceData: Int): WaitingNumImageIdModel {
 //        run let apply with
         return WaitingNumImageIdModel().apply {
-            leftImageId = getImgId(sourceData.waitingNum / 10)
-            rightImageId = getImgId(sourceData.waitingNum % 10)
+            leftImageId = getImgId(sourceData / 10)
+            rightImageId = getImgId(sourceData % 10)
         }
     }
 
